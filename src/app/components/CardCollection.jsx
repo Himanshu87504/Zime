@@ -20,7 +20,7 @@ export default function CardCollection() {
             setScrollY(window.scrollY);
 
             // Trigger next page when scroll passes threshold
-            if (window.scrollY > 400) { // adjust threshold as needed
+            if (window.scrollY > 100) { // adjust threshold as needed
                 setShowNextPage(true);
             } else {
                 setShowNextPage(false);
@@ -35,19 +35,13 @@ export default function CardCollection() {
 
 
     const scaleFactor = 1 + Math.min(scrollY * 0.005, 0.5); // max 3x
-    const opacityFactor = Math.max(0, 1 - scrollY * 0.0025); // fade out
+    const opacityFactor = Math.max(0, 1 - scrollY * 0.0003); // fade out
 
-    if (showNextPage) {
-
-        return (
-            <Sales />
-        );
-    }
 
 
     return (
-        <section className="relative w-full flex justify-center items-center py-2 h-screen">
-            <div className="relative -top-60 h-[260px] w-full max-w-7xl flex items-center pb-6">
+        <section className="relative w-full flex justify-center items-center py-2">
+            <div className="relative  h-[260px] w-full max-w-7xl flex items-center pb-6">
 
                 {/* CARD 1 */}
                 <div
