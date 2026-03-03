@@ -17,21 +17,21 @@ export default function Sales() {
                 }}
             />
 
-            {/* 1. ARROW ANIMATION: COMES FROM TOP */}
-            <motion.div
+
+            {/* <motion.div
                 initial={{ y: -100, opacity: 0 }}
                 animate={{ y: 0, opacity: 0.8 }}
                 transition={{ duration: 1.2, ease: "easeOut" }}
                 className="absolute inset-0 pointer-events-none z-10"
-            >
-                <Image
-                    src={arrow}
-                    alt="Arrow Scribbles"
-                    fill
-                    priority
-                    className="object-cover"
-                />
-            </motion.div>
+            > */}
+            <Image
+                src={arrow}
+                alt="Arrow Scribbles"
+                fill
+                priority
+                className="object-cover"
+            />
+            {/* </motion.div> */}
 
             {/* 2. CENTER TEXT: FADE & SLIGHT UPWARD MOVE */}
             <motion.div
