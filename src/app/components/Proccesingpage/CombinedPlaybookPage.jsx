@@ -1,12 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 export default function Break() {
-    const [startAnimation, setStartAnimation] = useState(false);
 
     const containerVariants = {
+        hidden: {},
         visible: {
             transition: {
                 staggerChildren: 0.15,
@@ -34,30 +33,31 @@ export default function Break() {
             className="relative h-screen w-full bg-[#F5F1E8] overflow-hidden font-sans"
             variants={containerVariants}
             initial="hidden"
-            animate={startAnimation ? "visible" : "hidden"}
-            onMouseEnter={() => setStartAnimation(true)}
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.3 }}
         >
-            {/* Background Grid (Always Visible) */}
+
+            {/* Background Grid */}
             <div
                 className="absolute inset-0 opacity-50"
                 style={{
                     backgroundImage: `
-            linear-gradient(#E5D8BE 1px, transparent 1px),
-            linear-gradient(90deg, #E5D8BE 1px, transparent 1px)
-          `,
+                        linear-gradient(#E5D8BE 1px, transparent 1px),
+                        linear-gradient(90deg, #E5D8BE 1px, transparent 1px)
+                    `,
                     backgroundSize: "60px 60px",
                 }}
             />
 
-            {/* Middle Band (Always Visible) */}
+            {/* Middle Band */}
             <div className="absolute top-1/2 left-0 w-full h-44 -translate-y-1/2 bg-[#F5F1E8]/80 backdrop-blur-sm">
                 <div
                     className="absolute inset-0 opacity-40"
                     style={{
                         backgroundImage: `
-              linear-gradient(rgba(229,216,190,0.5) 8px, transparent 8px),
-              linear-gradient(90deg, rgba(229,216,190,0.5) 8px, transparent 8px)
-            `,
+                            linear-gradient(rgba(229,216,190,0.5) 8px, transparent 8px),
+                            linear-gradient(90deg, rgba(229,216,190,0.5) 8px, transparent 8px)
+                        `,
                         backgroundSize: "30px 30px",
                     }}
                 />
@@ -113,6 +113,7 @@ export default function Break() {
             >
                 CUSTOMER JOURNEY
             </motion.div>
+
         </motion.main>
     );
 }

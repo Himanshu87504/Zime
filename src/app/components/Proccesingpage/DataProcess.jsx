@@ -1,12 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 export default function DataProcess() {
-    const [startAnimation, setStartAnimation] = useState(false);
 
     const containerVariants = {
+        hidden: {},
         visible: {
             transition: {
                 staggerChildren: 0.1,
@@ -25,48 +24,48 @@ export default function DataProcess() {
 
     return (
         <motion.main
-            className="relative h-screen w-full bg-[#FCF6E8] overflow-hidden font-sans flex items-center justify-center cursor-pointer"
+            className="relative h-screen w-full bg-[#FCF6E8] overflow-hidden font-sans flex items-center justify-center"
             variants={containerVariants}
             initial="hidden"
-            animate={startAnimation ? "visible" : "hidden"}
-            onMouseEnter={() => setStartAnimation(true)}
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.3 }}
         >
-            {/* 1. Background Grid (Always Visible) */}
+
+            {/* Background Grid */}
             <div
                 className="absolute inset-0 opacity-30"
                 style={{
                     backgroundImage: `
-            linear-gradient(#D9CDB8 1px, transparent 1px),
-            linear-gradient(90deg, #D9CDB8 1px, transparent 1px)
-          `,
+                        linear-gradient(#D9CDB8 1px, transparent 1px),
+                        linear-gradient(90deg, #D9CDB8 1px, transparent 1px)
+                    `,
                     backgroundSize: "40px 40px",
                 }}
             />
 
-            {/* 2. Middle Dotted Band (Small Squares) */}
+            {/* Middle Dotted Band */}
             <div className="absolute w-full h-40 flex items-center justify-center pointer-events-none">
                 <div
                     className="w-full h-32 opacity-20"
                     style={{
                         backgroundImage: `
-              linear-gradient(90deg, #B5A48B 8px, transparent 8px),
-              linear-gradient(#B5A48B 8px, transparent 8px)
-            `,
+                            linear-gradient(90deg, #B5A48B 8px, transparent 8px),
+                            linear-gradient(#B5A48B 8px, transparent 8px)
+                        `,
                         backgroundSize: "24px 24px",
                     }}
                 />
             </div>
 
-            {/* 3. Central Hero Square */}
+            {/* Center Hero Box */}
             <div className="relative z-10">
                 <div className="w-[320px] h-[380px] bg-[#E14A2E] p-3 shadow-2xl">
                     <div className="w-full h-full bg-[#7D2D1E] border-[10px] border-[#893223] flex items-center justify-center">
-                        {/* Centered content if needed */}
                     </div>
                 </div>
             </div>
 
-            {/* 4. Labels (TAGS) */}
+            {/* Tags */}
 
             <motion.div
                 variants={childVariants}
