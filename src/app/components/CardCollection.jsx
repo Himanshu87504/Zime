@@ -9,39 +9,32 @@ import card3 from "../image/card3.png";
 import card4 from "../image/card4.png";
 import card5 from "../image/card5.png";
 import card6 from "../image/card6.png";
-import Sales from "./complexpage/Sales";
 
 export default function CardCollection() {
+
     const [scrollY, setScrollY] = useState(0);
-    const [showNextPage, setShowNextPage] = useState(false);
 
     useEffect(() => {
+
         const handleScroll = () => {
             setScrollY(window.scrollY);
-
-            // Trigger next page when scroll passes threshold
-            if (window.scrollY > 100) { // adjust threshold as needed
-                setShowNextPage(true);
-            } else {
-                setShowNextPage(false);
-            }
         };
 
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
+
     }, []);
 
-    const spread = scrollY * 0.15;
+    // ONLY CHANGE THIS
+    const spread = scrollY * 0.7;
 
-
-    const scaleFactor = 1 + Math.min(scrollY * 0.005, 0.5); // max 3x
-    const opacityFactor = Math.max(0, 1 - scrollY * 0.0003); // fade out
-
-
+    const scaleFactor = 1 + Math.min(scrollY * 0.005, 0.5);
+    const opacityFactor = Math.max(0, 1 - scrollY * 0.0003);
 
     return (
         <section className="relative w-full flex justify-center items-center py-2">
-            <div className="relative  h-[260px] w-full max-w-7xl flex items-center pb-6">
+
+            <div className="relative h-[260px] w-full max-w-7xl flex items-center pb-6">
 
                 {/* CARD 1 */}
                 <div
@@ -69,7 +62,7 @@ export default function CardCollection() {
                 <div
                     className="absolute z-40 transition-all duration-300"
                     style={{
-                        transform: `translateX(${160}px) translateY(${16 - spread * 0.1}px) scale(${scaleFactor})`,
+                        transform: `translateX(${160}px) translateY(${16 - spread * 0.2}px) scale(${scaleFactor})`,
                         opacity: opacityFactor,
                     }}
                 >
@@ -110,6 +103,7 @@ export default function CardCollection() {
                 </div>
 
             </div>
+
         </section>
     );
 }

@@ -7,29 +7,42 @@ import Groupcircular from '../image/Groupcircular.png';
 
 const FirstPage = () => {
     return (
-        <div className="h-screen bg-[#ffce31] font-sans overflow-hidden relative selection:bg-black selection:text-white flex flex-col items-start justify-start ">
-            <div className="mb-4">
-                <Image
-                    src={Ellipse}
-                    alt="Ellipse"
-                    width={205}
-                    height={20}
-                />
+        <div className="h-screen  bg-[#ffce31] font-sans overflow-hidden relative selection:bg-black selection:text-white flex flex-col items-start justify-start ">
+            <div>
+                <div>
+                    <div className="mb-4">
+                        <Image
+                            src={Ellipse}
+                            alt="Ellipse"
+                            width={205}
+                            height={20}
+                        />
+                    </div>
+                    <div className="relative -top-140 left-26"> {/* Curve position: up-left from Groupcircular */}
+                        <motion.div
+                            className="relative"
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                        >
+                            <Image
+                                src={Groupcircular}
+                                alt="Group circular"
+                                width={200}
+                                height={200}
+                            />
+                        </motion.div>
+                    </div>
+                </div>
+
             </div>
-            <div className="relative -top-140 left-26"> {/* Curve position: up-left from Groupcircular */}
-                <motion.div
-                    className="relative"
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                >
-                    <Image
-                        src={Groupcircular}
-                        alt="Group circular"
-                        width={200}
-                        height={200}
-                    />
-                </motion.div>
+
+            <div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, veniam sunt autem pariatur, modi eum quae dignissimos quidem tempora, asperiores labore nam reiciendis nostrum delectus sequi est. Et, voluptate atque!
             </div>
+
+
+
+
 
 
         </div>
